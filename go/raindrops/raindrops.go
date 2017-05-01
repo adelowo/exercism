@@ -1,59 +1,30 @@
 package raindrops
 
 import (
-	"strconv"
+	"fmt"
 )
 
 const testVersion = 2
 
-type raindrops map[int]string
+func Convert(num int) string {
 
-var mappings raindrops
+	var out string
 
-func init() {
-	mappings = make(raindrops, 3)
-	mappings[3] = "Pling"
-	mappings[5] = "Plang"
-	mappings[7] = "Plong"
-}
-
-func Convert(n int) string {
-
-	if n == 1 {
-		return strconv.Itoa(n)
+	if num%3 == 0 {
+		out += "Pling"
 	}
 
-	var response string
-
-	allFactors := factorsFor(n)
-
-	for _, v := range allFactors {
-		if isDigitConvertableToString(v) {
-			response += mappings[v]
-		}
+	if num%5 == 0 {
+		out += "Plang"
 	}
 
-	if response == "" {
-		return strconv.Itoa(n)
+	if num%7 == 0 {
+		out += "Plong"
 	}
 
-	return response
-
-}
-
-func factorsFor(n int) []int {
-	var f []int
-
-	for i := 1; i <= n; i++ {
-		if n%i == 0 {
-			f = append(f, i)
-		}
+	if out == "" {
+		return fmt.Sprintf("%d", num)
 	}
 
-	return f
-}
-
-func isDigitConvertableToString(n int) bool {
-	_, exists := mappings[n]
-	return exists
+	return out
 }
