@@ -13,9 +13,10 @@ func IsPangram(s string) bool {
 	strings.Map(func(r rune) rune {
 
 		if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') {
+			val := strings.ToLower(string(r))
 
-			if _, ok := chars[strings.ToLower(string(r))]; !ok {
-				chars[strings.ToLower(string(r))] = true
+			if _, ok := chars[val]; !ok {
+				chars[val] = true
 			}
 
 			return r
