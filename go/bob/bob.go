@@ -14,7 +14,7 @@ func Hey(greeting string) string {
 		return "Fine. Be that way!"
 	}
 
-	if isQuestion(greeting) {
+	if isBobYelledAt(greeting) {
 		return "Whoa, chill out!"
 	}
 
@@ -26,7 +26,7 @@ func Hey(greeting string) string {
 
 }
 
-func isQuestion(s string) bool {
+func isBobYelledAt(s string) bool {
 	var upper, lower bool
 
 	for _, v := range s {
