@@ -26,10 +26,5 @@ func IsPangram(s string) bool {
 
 	}, s)
 
-	if len(chars) == 26 {
-		return true
-	}
-
-	return false
-
+	return len(chars) == 26
 }
