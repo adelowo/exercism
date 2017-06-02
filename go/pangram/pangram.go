@@ -2,21 +2,22 @@ package pangram
 
 import (
 	"strings"
+	"unicode"
 )
 
 const testVersion = 1
 
 func IsPangram(s string) bool {
 
-	var chars = make(map[string]bool, 26)
+	var chars = make(map[string]struct{}, 26)
 
 	strings.Map(func(r rune) rune {
 
-		if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') {
+		if upper := unicode.ToUpper(r); upper >= 'A' && upper <= unicode.MaxASCII {
 			val := strings.ToLower(string(r))
 
 			if _, ok := chars[val]; !ok {
-				chars[val] = true
+				chars[val] = struct{}{}
 			}
 
 			return r
