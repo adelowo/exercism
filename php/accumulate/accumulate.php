@@ -6,5 +6,11 @@ function accumulate(array $input, callable $accumulator)
         return [];
     }
 
-    return array_map($accumulator, $input);
+    $ret = [];
+
+    foreach ($input as $value) {
+	   $ret[] = call_user_func($accumulator, $value);
+    }
+
+    return $ret;
 }
