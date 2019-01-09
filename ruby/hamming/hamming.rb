@@ -1,5 +1,4 @@
 class Hamming
-
   def self.compute(first, second)
     raise ArgumentError unless first.length.equal?(second.length)
 

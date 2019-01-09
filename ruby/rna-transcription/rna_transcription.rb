@@ -1,18 +1,18 @@
 class Complement
+  STRANDS = { 'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U' }.freeze
 
-  STRANDS = {'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U' }
-  
   def self.of_dna(nucleotide)
-    rna = ""
+    rna = ''
 
-    nucleotide.split("").each do |val|
-        return "" if STRANDS[val].nil?
-        rna += STRANDS[val]
+    nucleotide.split('').each do |val|
+      return '' if STRANDS[val].nil?
+
+      rna += STRANDS[val]
     end
     rna
   end
 end
 
 module BookKeeping
-    VERSION = 4
+  VERSION = 4
 end
