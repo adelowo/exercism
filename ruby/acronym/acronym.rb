@@ -15,7 +15,7 @@ class Acronym
       end
 
       next unless w.split('').each do |char|
-        add = true if ('A'..'Z').cover? char.upcase
+        add = true if ('A'..'Z').cover? char
       end
 
       abbreviation += w[0] if add == true
