@@ -1,20 +1,20 @@
 class HighScores
   attr_reader :scores
 
-  def initialize(all_scores = [])
+  def initialize(all_scores)
     @scores = all_scores
   end
 
   def latest
-    @scores.last
+    scores.last
   end
 
   def personal_best
-    @scores.max
+    scores.max
   end
 
   def personal_top
-    @scores.sort_by(&:-@)[0..2]
+    scores.sort_by(&:-@)[0..2]
   end
 
   def report
@@ -25,7 +25,4 @@ class HighScores
     return "Your latest score was #{latest_score}. That's #{short} short of your personal best!" if short > 0
   end
 
-  private
-
-  attr_writer :scores
 end
