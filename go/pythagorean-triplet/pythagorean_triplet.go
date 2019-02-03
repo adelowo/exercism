@@ -8,12 +8,12 @@ func Range(min, max int) (result []Triplet) {
 		c := b + 1
 		for c <= max {
 			for c*c < a*a+b*b {
-				c += 1
+				c++
 			}
 			if c*c == a*a+b*b && c <= max {
 				result = append(result, Triplet{a, b, c})
 			}
-			b += 1
+			b++
 		}
 	}
 	return result

@@ -3,7 +3,7 @@ class HighScores
 
   def initialize(all_scores)
     @scores = all_scores
-    end
+  end
 
   def latest
     scores.last
@@ -26,12 +26,9 @@ class HighScores
   def report_details
     latest_score = latest
 
-    if personal_best.eql? latest_score
-      return "That's your personal best!"
-    else
+    return "That's your personal best!" if personal_best.eql? latest_score
 
-      short = personal_top.first - latest_score
-      "That's #{short} short of your personal best!" if short > 0
-    end
+    short = personal_top.first - latest_score
+    "That's #{short} short of your personal best!" if short > 0
   end
 end

@@ -2,29 +2,30 @@ package raindrops
 
 import (
 	"fmt"
+	"strings"
 )
 
 const testVersion = 2
 
 func Convert(num int) string {
 
-	var out string
+	var s strings.Builder
 
 	if num%3 == 0 {
-		out += "Pling"
+		s.WriteString("Pling")
 	}
 
 	if num%5 == 0 {
-		out += "Plang"
+		s.WriteString("Plang")
 	}
 
 	if num%7 == 0 {
-		out += "Plong"
+		s.WriteString("Plong")
 	}
 
-	if out == "" {
+	if s.Len() == 0 {
 		return fmt.Sprintf("%d", num)
 	}
 
-	return out
+	return s.String()
 }
