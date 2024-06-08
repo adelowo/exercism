@@ -5,8 +5,7 @@ const math = std.math;
 pub fn squareOfSum(number: usize) usize {
     var sumTotal: usize = 0;
 
-    var i: usize = 0;
-    while (i <= number) : (i += 1) {
+    for (0..number + 1) |i| {
         sumTotal += i;
     }
 
@@ -16,9 +15,7 @@ pub fn squareOfSum(number: usize) usize {
 pub fn sumOfSquares(number: usize) usize {
     var sumTotal: usize = 0;
 
-    var i: usize = 0;
-
-    while (i <= number) : (i += 1) {
+    for (0..number + 1) |i| {
         sumTotal += math.pow(usize, i, 2);
     }
 
