@@ -6,18 +6,14 @@ pub const ComputationError = error{
 
 const defaultNumberOfSteps: usize = 0;
 
-pub fn steps(n: usize) anyerror!usize {
+pub fn steps(n: usize) error{IllegalArgument}!usize {
     var numberOfSteps: usize = 0;
 
     var number = n;
 
     switch (number) {
-        0 => {
-            return ComputationError.IllegalArgument;
-        },
-        1 => {
-            return 0;
-        },
+        0 => return error.IllegalArgument,
+        1 => return 0,
         else => {
             while (number != 1) {
                 numberOfSteps += 1;
